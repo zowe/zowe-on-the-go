@@ -1,3 +1,11 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="zowe-color.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Zowe Mobile Application</ion-title>
@@ -6,7 +14,7 @@
 
 <ion-content padding>
     <div class="ion-padding" align="center">
-      <img class='logo.img' border-style='none' src='DkpOlsgW0AAGmlb.jpg'>
+      <img class='logo.img' border-style='none' src='zowe-color.png'>
     </div>
 
     <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">

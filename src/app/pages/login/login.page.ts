@@ -23,6 +23,7 @@ import { environment } from 'src/environments/environment';
 export class LoginPage implements OnInit {
 
   credentialsForm: FormGroup;
+  splash = true;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
@@ -34,6 +35,10 @@ export class LoginPage implements OnInit {
     url:      [''],
     });
 
+  }
+
+  ionViewWillEnter() {
+    setTimeout(() => this.splash = false, 4000);
   }
 
   onSubmit() {
