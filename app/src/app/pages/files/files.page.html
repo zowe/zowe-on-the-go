@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Files</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-card *ngIf="data">
+      
+  <ion-card-content text-center>
+    
+    <ion-list name="plugins">
+      <ion-item *ngFor="let x of responseArray"><p> {{ x.dsname }} </p></ion-item>
+    </ion-list>
+
+  </ion-card-content>
+
+</ion-card>
+
+  <ion-button expand="full" (click)="back()">Back</ion-button>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+
+</ion-content>
+

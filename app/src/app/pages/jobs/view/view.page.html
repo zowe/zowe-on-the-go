@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>View Job Spool</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item text-center><ion-label><h1> {{ jbnm }} </h1></ion-label></ion-item>
+  <ion-card *ngFor="let x of data" type="button" (click)="detail(x.jobname, x.jobid, x.ddname, x.stepname, x.id)">
+    <ion-item text-wrap>
+      <ion-grid>
+        <ion-row>
+          <ion-col><b>DD NAME:</b></ion-col>
+          <ion-col>{{ x.ddname }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><b>STEP NAME:</b></ion-col>
+          <ion-col>{{ x.stepname }}</ion-col>
+        </ion-row>
+        <ion-row></ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="full" (click)="back()">Back</ion-button>
+  
+</ion-content>

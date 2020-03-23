@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Job Detailed View</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf = "data" >
+  <ion-card>
+      <ion-item text-wrap>
+        <ion-grid>
+          <h3>{{ data.jobname }}</h3><br/>
+          <ion-row>
+            <ion-col><b>Owner:</b></ion-col>
+            <ion-col>{{ data.owner }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>Job-ID:</b></ion-col>
+            <ion-col>{{ data.jobid }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>Status:</b></ion-col>
+            <ion-col>{{ data.status }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>Return Code:</b></ion-col>
+            <ion-col>{{ data.retcode }}</ion-col>
+          </ion-row>
+          <ion-row></ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  <ion-button expand="full" (click)="spool()">View job spool</ion-button>
+  <ion-button expand="full" (click)="restart()">Restart</ion-button>
+  <ion-button expand="full" (click)="edit()">Edit JCL</ion-button>
+  <ion-button expand="full" (click)="delete()">Delete job</ion-button>
+  <ion-button expand="full" (click)="cancel()">Cancel job</ion-button>
+  <ion-button expand="full" (click)="back()">Back to search</ion-button>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+</ion-content>

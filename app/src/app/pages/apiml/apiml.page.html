@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Zowe running services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <ion-card *ngIf="services"> -->
+  <!-- <ion-card> -->
+    <!-- <ion-card-content text-center> -->
+
+      <ion-list name="plugins">
+        <ion-item *ngFor="let x of services">
+            <ion-avatar >
+                <img [src]="x.status ==='UP' ? 'assets/api-catalog-logo_green.png' : 'assets/api-catalog-logo_red.png'" class="service-icon">
+              </ion-avatar>
+              <div>&nbsp;&nbsp;</div>
+              <ion-label>
+                <h2>{{ x.title }}</h2>
+                <p>{{ x.status }}</p>
+              </ion-label>
+
+        </ion-item>
+        <!-- <ion-item>
+          <ion-avatar >
+            <img src="assets/api-catalog-logo.png" class="service-icon">
+          </ion-avatar>
+          <div>&nbsp;&nbsp;</div>
+          <ion-label>
+            <h2><b>z/OSMF</b></h2>
+            <p>Up</p>
+          </ion-label>
+        </ion-item> -->
+
+        <!-- <ion-item >
+        <div>
+          <b>HEADER</b><br/>
+          <tr border-style='none'>
+            <td><p>Owner:</p></td>
+            <td><p>owner</p></td>
+          </tr>
+          <tr>
+            <td><p>Job-ID:</p></td>
+            <td><p>jobid</p></td>
+          </tr>
+          <tr border-style='none'>
+            <td><p>Status:</p></td>
+            <td><p>status</p></td>
+          </tr>
+          <tr>
+            <td><p>Return Code:</p></td>
+            <td><p>rc</p></td>
+          </tr>
+        </div>
+      </ion-item> -->
+
+        <!-- <ion-item *ngFor="let x of data">
+          <div>
+            <b>{{ x.jobname }}</b><br />
+            <tr border-style='none'>
+              <td>
+                <p>Owner:</p>
+              </td>
+              <td>
+                <p>{{ x.owner }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Job-ID:</p>
+              </td>
+              <td>
+                <p>{{ x.jobid }}</p>
+              </td>
+            </tr>
+            <tr border-style='none'>
+              <td>
+                <p>Status:</p>
+              </td>
+              <td>
+                <p>{{ x.status }}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Return Code:</p>
+              </td>
+              <td>
+                <p>{{ x.retcode }}</p>
+              </td>
+            </tr>
+          </div>
+        </ion-item> -->
+
+      </ion-list>
+
+    <!-- </ion-card-content> -->
+
+  <!-- </ion-card> -->
+  
+  <ion-button expand="full" (click)="back()">Back</ion-button>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+</ion-content>

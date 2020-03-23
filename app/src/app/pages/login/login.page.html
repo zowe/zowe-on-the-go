@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Zowe Mobile Application</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="ion-padding" align="center">
+      <img class='logo.img' border-style='none' src='DkpOlsgW0AAGmlb.jpg'>
+    </div>
+
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+
+      <ion-label position="floating">User</ion-label>
+      <ion-input type="username" formControlName="username"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Zowe Gateway URL</ion-label>
+        <ion-input type="url" formControlName="url"></ion-input>
+    </ion-item>
+
+    <div><br/><br/></div>
+ 
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+ 
+  </form>
+</ion-content>
