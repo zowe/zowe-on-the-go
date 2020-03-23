@@ -20,8 +20,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Install the ionic CLI globally: `npm install -g ionic`
 * Clone this repository.
-* Go to app folder: `cd app`
-* Run `npm install` from the /app directory.
+* Run `npm install` from the directory.
 * Run `ionic serve` in a terminal. This starts a local dev server for app dev/testing
 * Profit. :tada:
 
@@ -31,17 +30,17 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Main Menu
 
-  <img src="app/resources/mobile%20screenshots/main%20menu.PNG" alt="Main Menu" width="40%" height="40%">
+  <img src="resources/mobile%20screenshots/main%20menu.PNG" alt="Main Menu" width="40%" height="40%">
 
 - Zowe Services
 
-  <img src="app/resources/mobile%20screenshots/Zowe%20Services.PNG" alt="Zowe Services" width="40%" height="40%">
+  <img src="resources/mobile%20screenshots/Zowe%20Services.PNG" alt="Zowe Services" width="40%" height="40%">
 
 - Jobs Menu
 
-  <img src="app/resources/mobile%20screenshots/Jobs%20Detailed%20View.PNG" alt="Detailed Jobs" width="40%" height="40%">
+  <img src="resources/mobile%20screenshots/Jobs%20Detailed%20View.PNG" alt="Detailed Jobs" width="40%" height="40%">
 
-**Tip:** To see more images of the app, check out the [screenshots directory](/app/resources/mobile%20screenshots)!
+**Tip:** To see more images of the app, check out the [screenshots directory](/resources/mobile%20screenshots)!
 
 ## Authors
 
