@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "zowe-on-the-go",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Zowe Mobile Application",
+  "homepage": "https://www.zowe.org/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
