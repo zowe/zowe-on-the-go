@@ -1,5 +1,7 @@
 # Zowe Mobile Application
 
+[![CircleCI](https://circleci.com/gh/zowe/zowe-on-the-go.svg?style=svg)](https://circleci.com/gh/zowe/zowe-on-the-go)
+
 The Zowe Mobile Application lets you interact with your Zowe instance running on the mainframe. You can login using your mainframe credentials and be authenticated using the [API Mediation Layer Security](https://docs.zowe.org/v1-3-x/extend/extend-apiml/api-mediation-security.html). You can check the status of all the Zowe services [discovered](https://docs.zowe.org/v1-3-x/getting-started/overview.html#api-mediation-layer) by the API Mediation Layer. You can access the [Jobs services](https://docs.zowe.org/v1-3-x/getting-started/overview.html#z-os-services), view jobs in the spool, view their spool files, restart jobs, edit JCL taken from the spool and submit it, delete jobs from the spool, and cancel running jobs. 
 
 Interacting with Zowe from your mobile is now within reach.
