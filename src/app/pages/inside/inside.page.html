@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Main Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <div>
+    <p>What would you like to do today?</p>
+  </div>
+  
+  <ion-card>
+      <ion-item button (click)="apiml()">
+          <ion-avatar slot="start">
+            <img class='icon.apiml' src="api-catalog-logo.png">
+          </ion-avatar>
+          <ion-label text-wrap><p>Check Zowe Services Status</p></ion-label>
+        </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <ion-item button (click)="jobs()">
+          <ion-avatar slot="start">
+            <img class='icon.jobs' src="business-job-search-symbol.svg">
+          </ion-avatar>
+          <ion-label text-wrap><p>Access Jobs Services</p></ion-label>
+        </ion-item>
+  </ion-card>
+
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+ 
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>EDIT JCL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-textarea [(ngModel)]="jcl" rows="10" cols="80" value="{{data}}"></ion-textarea>
+  </ion-item>
+  
+ 
+<ion-button expand="full" (click)="submit()">Submit</ion-button>
+<ion-button expand="full" type="button" (click)="back()">Cancel</ion-button>
+
+</ion-content>

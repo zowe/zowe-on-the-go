@@ -1,0 +1,36 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Search Results</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let x of items" type="button" (click)="menu(x.jobname, x.jobid)">
+      <ion-item text-wrap>
+        <ion-grid>
+          <h3>{{ x.jobname }}</h3><br/>
+          <ion-row>
+            <ion-col><b>Owner:</b></ion-col>
+            <ion-col>{{ x.owner }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>Job-ID:</b></ion-col>
+            <ion-col>{{ x.jobid }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>Status:</b></ion-col>
+            <ion-col>{{ x.status }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><b>RC:</b></ion-col>
+            <ion-col>{{ x.retcode }}</ion-col>
+          </ion-row>
+          <ion-row></ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+
+  <ion-button expand="full" type="button" (click)="back()">Back</ion-button>
+
+</ion-content>

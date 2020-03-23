@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>z/OS Management Facility</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+    <ion-list *ngIf="data">
+        <ion-item  name="z/OS Version">
+          <b> z/OS Version: </b>  {{ data.zos_version }} 
+        </ion-item>
+        <ion-item  name="z/OS Version">
+          <b> z/OSMF Version: </b>  {{ data.zosmf_version }} 
+        </ion-item>
+        <ion-item  name="z/OS Version">
+          <b> Hostname: </b>  {{ data.zosmf_hostname }} 
+        </ion-item>
+        <ion-item  name="z/OS Version">
+          <b> Port: </b>  {{ data.zosmf_port }} 
+        </ion-item>
+    </ion-list>
+    
+    <ion-card *ngIf="data">
+        
+      <ion-card-content text-center>
+        
+        <ion-list name="plugins">
+          <ion-item *ngFor="let x of responseArray">{{ x.pluginVersion }}<br/> {{ x.pluginDefaultName }}<br/> {{ x.pluginStatus }}</ion-item>
+        </ion-list>
+  
+      </ion-card-content>
+  
+    </ion-card>
+
+    <ion-button expand="full" (click)="back()">Back</ion-button>
+    <ion-button expand="full" (click)="logout()">Logout</ion-button>
+
+</ion-content>

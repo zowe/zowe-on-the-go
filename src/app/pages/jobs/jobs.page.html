@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Jobs Services</ion-title>
+  </ion-toolbar>
+    
+</ion-header>
+
+<ion-content>
+    
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+    <ion-item>
+      <ion-input type="text" formControlName="prefix" placeholder="Job name (e.g. IZUANG1)"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-input type="text" formControlName="owner" placeholder="Owner"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" formControlName="jobid" placeholder="Job ID (e.g. JOB12345)"></ion-input>
+    </ion-item>
+ 
+    <ion-button expand="full" type="submit">Search</ion-button>
+    
+  </form>
+    <ion-button expand="full" (click)="back()" type="button">Back</ion-button>
+</ion-content>

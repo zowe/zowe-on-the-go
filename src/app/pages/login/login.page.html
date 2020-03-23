@@ -1,0 +1,42 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="zowe-color.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Zowe Mobile Application</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="ion-padding" align="center">
+      <img class='logo.img' border-style='none' src='zowe-color.png'>
+    </div>
+
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+
+      <ion-label position="floating">User</ion-label>
+      <ion-input type="username" formControlName="username"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Zowe Gateway URL</ion-label>
+        <ion-input type="url" formControlName="url"></ion-input>
+    </ion-item>
+
+    <div><br/><br/></div>
+ 
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+ 
+  </form>
+</ion-content>
