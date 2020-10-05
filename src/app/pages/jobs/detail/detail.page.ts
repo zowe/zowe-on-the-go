@@ -47,7 +47,7 @@ export class DetailPage implements OnInit {
 
   viewJobDetail(jobname, jobid, id){
     // console.log('${environment.zosURL}/api/v1/zosmf/restjobs/jobs/',jobname,jobid,id,'records');
-    return this.http.get(`${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${jobname}/${jobid}/files/${id}/records`, {
+    return this.http.get(`${environment.zosURL}/zosmf/restjobs/jobs/${jobname}/${jobid}/files/${id}/records`, {
       headers: {
         'X-CSRF-ZOSMF-HEADER': '',
         'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass)

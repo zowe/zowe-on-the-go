@@ -71,7 +71,7 @@ export class AuthService {
 
     this.load();
 
-    return this.http.post(`${credentials.url}/api/v1/gateway/auth/login`, JSON.stringify(credentials), {observe: 'response'})
+    return this.http.post(`${credentials.url}/gateway/auth/login`, JSON.stringify(credentials), {observe: 'response'})
       .pipe(
         tap(res => {
           console.log('im in', res);
@@ -114,7 +114,7 @@ export class AuthService {
   }
 
   getSpecialData() {
-    return this.http.get(`${environment.zosURL}/api/v1//zosmf/info`).pipe(
+    return this.http.get(`${environment.zosURL}/zosmf/info`).pipe(
       catchError(e => {
         let status = e.status;
         console.log(status);
@@ -133,7 +133,8 @@ export class AuthService {
     // const base64Credential: string = btoa( user.username + ':' + user.password);
     // headers.append('Authorization', 'Basic ' + base64Credential);
 
-    let query = `${environment.zosURL}/api/v1/zosmf/restjobs/jobs`;
+    let query = `${environment.zosURL}/zosmf/restjobs/jobs`;
+    // let query = `https://usilca32.lvn.broadcom.net:1443/zosmf/restjobs/jobs`;
     if (searchForm.owner==="") {
         query += '?' + `owner=${environment.user}`;
     } else {
@@ -152,8 +153,10 @@ export class AuthService {
       observe: 'response',
       headers: {
         Authorization: 'Basic ' + btoa(environment.user + ':' + environment.pass),
-        'X-CSRF-ZOSMF-HEADER': ''
-      }
+        'X-CSRF-ZOSMF-HEADER': '',
+        'Access-Control-Allow-Origin': '*',
+      },
+      reportProgress: true
     }).pipe(
         tap(res => {
           this.loadingController.dismiss();
@@ -171,10 +174,11 @@ export class AuthService {
 
   viewJobsData(jobname, jobid) {
     this.load();
-    return this.http.get(`${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${jobname}/${jobid}/files`, {
+    return this.http.get(`${environment.zosURL}/zosmf/restjobs/jobs/${jobname}/${jobid}/files`, {
       headers: {
         'X-CSRF-ZOSMF-HEADER': '',
-        'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass)
+        'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass),
+        'Access-Control-Allow-Origin': '*'
       },
       responseType: 'text'
     })
@@ -195,10 +199,11 @@ export class AuthService {
     // const base64Credential: string = btoa( user.username + ':' + user.password);
     // headers.append('Authorization', 'Basic ' + base64Credential);
 
-      return this.http.get(`${environment.zosURL}/api/v1/zosmf/restfiles/ds?dslevel=PRODUCT.TDM.DEMO.*`, {
+      return this.http.get(`${environment.zosURL}/zosmf/restfiles/ds?dslevel=PRODUCT.TDM.DEMO.*`, {
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass)
+          'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass),
+          'Access-Control-Allow-Origin': '*'
         }
       }).pipe(
       catchError(e => {
@@ -217,13 +222,14 @@ export class AuthService {
     const base64Credential: string = btoa(environment.user + ':' + environment.pass);
     const headers = new HttpHeaders({
       Accept: 'application/json',
-      Authorization: 'Basic ' + base64Credential // ,
+      Authorization: 'Basic ' + base64Credential,
+      'Access-Control-Allow-Origin': '*' // ,
       // 'X-CSRF-ZOSMF-HEADER' : ''
     });
 
     // console.log("auth_serv: APIML", JSON.stringify(body), headers)
     return this.http.get(
-      `${environment.zosURL}/api/v1/apicatalog/containers`,
+      `${environment.zosURL}/apicatalog/containers`,
       { 
         headers,
         observe: 'response'
@@ -273,10 +279,11 @@ export class AuthService {
   restartJob(jobname, jobid) {
     console.log("restart j", jobname, jobid, this.url, this.port);
     this.load();
-    return this.http.get(`${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${jobname}/${jobid}/files/JCL/records`, {
+    return this.http.get(`${environment.zosURL}/zosmf/restjobs/jobs/${jobname}/${jobid}/files/JCL/records`, {
       headers: {
         'X-CSRF-ZOSMF-HEADER': '',
-        'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass)
+        Authorization: 'Basic ' + btoa(environment.user + ':' + environment.pass),
+        'Access-Control-Allow-Origin': '*'
       },
       responseType: 'text'
     }).pipe(
@@ -297,14 +304,18 @@ export class AuthService {
   }
 
   submitJob(jobname, jobid, JCLdata) {
-    console.log("submit j", jobname, jobid, this.url, this.port);
+    console.log("submit j", jobname, jobid, this.url, this.port, JCLdata);
     this.load();
-    return this.http.post(`${environment.zosURL}/api/v1/jobs/string`, {
-        "jcl": JCLdata
-      }, {observe: 'response',
+    return this.http.put(`${environment.zosURL}/zosmf/restjobs/jobs`, JCLdata,
+     {observe: 'response',
       headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Basic ' + btoa(environment.user + ':' + environment.pass)
+          'X-IBM-Intrdr-Class': 'A',
+          'X-IBM-Intrdr-Recfm': 'F',
+          'X-IBM-Intrdr-Lrecl': '80',
+          'X-IBM-Intrdr-Mode': 'TEXT',
+          'Content-Type': 'text/plain',
+          Authorization: 'Basic ' + btoa(environment.user + ':' + environment.pass),
+          'Access-Control-Allow-Origin': '*'
       }}).pipe(
       tap(res => {
           this.loadingController.dismiss();
@@ -321,14 +332,15 @@ export class AuthService {
   }
   getJobInfo(jobname, jobid) {
     // Getting basic info about one job
-    const query = `${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${jobname}/${jobid}`;
+    const query = `${environment.zosURL}/zosmf/restjobs/jobs/${jobname}/${jobid}`;
     console.log(query);
     this.load();
     return this.http.get(query, {
       observe: 'response',
       headers: {
         Authorization: 'Basic ' + btoa(environment.user + ':' + environment.pass),
-        'X-CSRF-ZOSMF-HEADER': ''
+        'X-CSRF-ZOSMF-HEADER': '',
+        'Access-Control-Allow-Origin': '*'
       }
     }).pipe(
         tap(res => {

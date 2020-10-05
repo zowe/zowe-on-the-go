@@ -52,7 +52,7 @@ export class DeletePage implements OnInit {
       duration: 3000
     }).then(loading => loading.present());
 
-    return this.http.delete(`${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${this.jobname}/${this.jobid}`, {
+    return this.http.delete(`${environment.zosURL}/zosmf/restjobs/jobs/${this.jobname}/${this.jobid}`, {
       headers: {
         'X-IBM-Job-Modify-Version': '1.0',
         'X-CSRF-ZOSMF-HEADER': '',

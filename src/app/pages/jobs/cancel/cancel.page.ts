@@ -52,7 +52,7 @@ export class CancelPage implements OnInit {
       duration: 3000
     }).then(loading => loading.present());
 
-    return this.http.put(`${environment.zosURL}/api/v1/zosmf/restjobs/jobs/${this.jobname}/${this.jobid}`, {
+    return this.http.put(`${environment.zosURL}/zosmf/restjobs/jobs/${this.jobname}/${this.jobid}`, {
       request: 'cancel'
     }, {
     headers: {
