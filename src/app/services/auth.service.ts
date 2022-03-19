@@ -71,8 +71,11 @@ export class AuthService {
 
     this.load();
 
-    return this.http.post(`${credentials.url}/api/v1/gateway/auth/login`, JSON.stringify(credentials), {observe: 'response'})
-      .pipe(
+    return this.http.post(`${credentials.url}/gateway/api/v1/auth/login`, JSON.stringify(credentials), {
+      observe: 'response',
+      headers: new HttpHeaders().append("X-CSRF-ZOSMF-HEADER", "true")
+       .append("Access-Control-Allow-Origin", "http://localhost:4200") // for testing purposes
+    }).pipe(
         tap(res => {
           console.log('im in', res);
           this.loadingController.dismiss();
@@ -224,7 +227,7 @@ export class AuthService {
     // console.log("auth_serv: APIML", JSON.stringify(body), headers)
     return this.http.get(
       `${environment.zosURL}/api/v1/apicatalog/containers`,
-      { 
+      {
         headers,
         observe: 'response'
       })
