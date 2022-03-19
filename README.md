@@ -9,6 +9,9 @@ Interacting with Zowe from your mobile is now within reach.
 
 The Zowe Mobile Application app is powered by Zowe.
 
+## Need Help?
+For questions and general guidance, please visit #zowe-mobile channel on Slack
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
