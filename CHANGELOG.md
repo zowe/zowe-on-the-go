@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-extension-for-zowe" extension will be documented in this file.
 
+## 0.4.0
+
+- Upgrade to angular v13
+
 ## 0.3.1
 
 - Add Changelog, Contributing Guidelines and Code of Conduct
