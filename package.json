@@ -35,10 +35,10 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "~0.801.2",
+    "@angular-devkit/architect": "~0.1500.5",
     "@angular-devkit/build-angular": "~15.0.0",
-    "@angular-devkit/core": "~8.1.2",
-    "@angular-devkit/schematics": "~8.1.2",
+    "@angular-devkit/core": "~8.1.3",
+    "@angular-devkit/schematics": "~8.3.29",
     "@angular/cli": "15.0.0",
     "@angular/compiler": "~8.1.2",
     "@angular/compiler-cli": "~15.0.0",
